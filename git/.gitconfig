@@ -1,0 +1,22 @@
+[user]
+	name = Sami Shakir
+[core]
+	excludesfile = /root/git/.gitignore_global
+
+[includeIf "gitdir:~/git/work/"]
+        path = ~/git/work/.gitconfig
+
+[includeIf "gitdir:~/git/personal/"]
+        path = ~/git/personal/.gitconfig
+
+[includeIf "gitdir:/mnt/c/Users/Sami-Win10-PC/git/work/"]
+        path = ~/git/work/.gitconfig
+
+[includeIf "gitdir:/mnt/c/Users/Sami-Win10-PC/git/personal/"]
+        path = ~/git/personal/.gitconfig
+
+[includeIf "gitdir:/mnt/c/xampp/apache/git/work/"]
+        path = ~/git/work/.gitconfig
+
+[includeIf "gitdir:/mnt/c/xampp/apache/git/personal/"]
+        path = ~/git/personal/.gitconfig
