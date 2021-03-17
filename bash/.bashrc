@@ -110,6 +110,6 @@ else
 fi
 
 # Shell prompt layout
-export PS1="[\[$(tput sgr0)\]\[\033[38;5;203m\]\u\[$(tput sgr0)\]@\[$(tput sgr0)\]\[\033[38;5;119m\]\h\[$(tput sgr0)\]:\[$(tput sgr0)\]\[\033[38;5;6m\]\w\[$(tput sgr0)\]]\\$ \[$(tput sgr0)\]"
+export PS1="[\[$(tput sgr0)\]\[\033[38;5;203m\]\u\[$(tput sgr0)\]@\[$(tput sgr0)\]\[\033[38;5;119m\]\h\[$(tput sgr0)\]: \[$(tput sgr0)\]\[\033[38;5;6m\]\W\[$(tput sgr0)\]]\\$ \[$(tput sgr0)\]"
 
 . /etc/environment
