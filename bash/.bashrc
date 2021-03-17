@@ -113,5 +113,3 @@ fi
 export PS1="[\[$(tput sgr0)\]\[\033[38;5;203m\]\u\[$(tput sgr0)\]@\[$(tput sgr0)\]\[\033[38;5;119m\]\h\[$(tput sgr0)\]:\[$(tput sgr0)\]\[\033[38;5;6m\]\w\[$(tput sgr0)\]]\\$ \[$(tput sgr0)\]"
 
 . /etc/environment
-
-alias config='/usr/bin/git --git-dir=/root/.cfg/ --work-tree=/root'

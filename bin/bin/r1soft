@@ -11,5 +11,5 @@ if [[ -z ${SITE} ]]; then
     SITE=$(ssh -oStrictHostKeyChecking=no $@ "grep 'Matched public key' /usr/sbin/r1soft/log/cdp.log" | tail -1 | awk '{print $7}' | cut -d / -f 7 | cut -d \' -f 1)
 fi
 
-echo ${SITE}
+echo "Server -> ${SITE}"
 echo ${SITE} | while read line; do ${BROWSER} ${line} >/dev/null 2>&1; done

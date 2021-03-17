@@ -1,3 +1,4 @@
+# Functions to pass through options
 function torhost() {
         TOR=$(host ${1} | grep -oP '(?<=vlan).*' | cut -d '.' -f 2-)
         TOR2=${TOR::-1}
@@ -6,8 +7,6 @@ function torhost() {
 function hosted() {
 	host $1 | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" | xargs host | awk '{print $5}' | bash -ic "xargs whm"
 }
-alias pulldev='ssh -tq puppet02 "bash -ic pulldev"'
-alias pullstaging='ssh -tq puppet02 "bash -ic pullstaging"'
 function sslchk() {
         firefox https://www.sslshopper.com/ssl-checker.html#hostname=$1 &
 }
@@ -33,6 +32,10 @@ function geopeeker() {
 function pagerduty() {
         wslview "https://digitalpacific.pagerduty.com/incidents/${1}/timeline" &
 }
+
+# Aliases
+alias pulldev='ssh -tq puppet02 "bash -ic pulldev"'
+alias pullstaging='ssh -tq puppet02 "bash -ic pullstaging"'
 alias hosts='sudo vim /etc/hosts'
 alias reslack='pkill slack && slack'
 alias gitpushall='echo -e "\n$PWD\n------------------------\n" && git status && git add . && git commit -m "auto commit from $(hostname)" && git push origin'
@@ -45,3 +48,7 @@ alias systemctl='sudo systemctl'
 alias copy='xclip -sel clip'
 alias spotify='spotify &'
 alias python='python3.8'
+alias config='/usr/bin/git --git-dir=/root/.cfg/ --work-tree=/root'
+
+# Only if linux is the main OS
+# alias ovpn='sudo openvpn --config ~/work/hostopia.ovpn &'
