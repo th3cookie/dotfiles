@@ -1,4 +1,4 @@
-source ~/.bashrc
+[[ -f $HOME/.bashrc ]] && . ~/.bashrc
 
 # Add home binary dir to PATH
 if [[ -d "$HOME/bin" ]] ; then

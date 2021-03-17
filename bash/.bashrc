@@ -68,19 +68,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
 fi
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -113,3 +101,19 @@ fi
 export PS1="[\[$(tput sgr0)\]\[\033[38;5;203m\]\u\[$(tput sgr0)\]@\[$(tput sgr0)\]\[\033[38;5;119m\]\h\[$(tput sgr0)\]:\[$(tput sgr0)\]\[\033[38;5;6m\]\w\[$(tput sgr0)\]]\\$ \[$(tput sgr0)\]"
 
 . /etc/environment
+
+# Color man pages
+export LESS_TERMCAP_md=$'\e[01;32m' # Bold start
+export LESS_TERMCAP_me=$'\e[0m' # Bold end
+export LESS_TERMCAP_so=$'\e[01;44;33m' # Standout-mode start
+export LESS_TERMCAP_se=$'\e[0m' # Standout-mode end
+export LESS_TERMCAP_us=$'\e[01;32m' # Underline start
+export LESS_TERMCAP_ue=$'\e[0m' # Underline end
+
+# These two lines are necessary for pipenv to run under pyenv apparently
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# Set command line editing mode to vi
+set -o vi
