@@ -40,6 +40,13 @@ git commit -m "message"
 git push origin
 ```
 
+Optionally, you may want to merge the commits into master to keep the HEAD in sync but you need to specify the "ours" merge strategy as defined in the .gitattributes file. To do this, the command is (on master branch):
+```shell
+git merge -s ours office-pc
+```
+
+Fix any conflicts that arise and push back to github (if required).
+
 ## How to install.
 
 The files in this repository must be symlinked to their respective paths in the `$HOME` folder. We can do this manually or using [GNU Stow](https://www.gnu.org/software/stow/). Since GNU Stow can automatically manage symlinked files, it is the recommended tool for setting up the dotfiles.
