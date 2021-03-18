@@ -86,6 +86,15 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# set PATH so it includes user's private bin if it exists
+[[ -d "$HOME/bin" ]] && PATH="$HOME/bin:$PATH"
+
+# set PATH so it includes user's private bin if it exists
+[[ -d "$HOME/.local/bin" ]] && PATH="$HOME/.local/bin:$PATH"
+
+# If environment file exists source it
+[[ -f "/etc/environment" ]] && . /etc/environment
+
 # SSH Stuff
 #pkill ssh-agent
 #if ! pgrep ssh-agent > /dev/null; then
@@ -99,8 +108,6 @@ fi
 
 # Shell prompt layouts
 # Main
-export PS1="[\[$(tput sgr0)\]\[\033[38;5;203m\]\u\[$(tput sgr0)\]@\[$(tput sgr0)\]\[\033[38;5;119m\]\h\[$(tput sgr0)\]: \[$(tput sgr0)\]\[\033[38;5;6m\]\W\[$(tput sgr0)\]]\\$ \[$(tput sgr0)\]"
-#Staff01
-#PS1='\e[33;1m\u@\h: \e[31m\W\e[0m\$ '
-
-. /etc/environment
+PS1="[\[$(tput sgr0)\]\[\033[38;5;203m\]\u\[$(tput sgr0)\]@\[$(tput sgr0)\]\[\033[38;5;119m\]\h\[$(tput sgr0)\]: \[$(tput sgr0)\]\[\033[38;5;6m\]\W\[$(tput sgr0)\]]\\$ \[$(tput sgr0)\]"
+# Staff01
+# PS1='\e[33;1m\u@\h: \e[31m\W\e[0m\$ '
