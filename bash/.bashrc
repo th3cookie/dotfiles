@@ -109,3 +109,19 @@ fi
 export PS1="[\[$(tput sgr0)\]\[\033[38;5;203m\]\u\[$(tput sgr0)\]@\[$(tput sgr0)\]\[\033[38;5;119m\]\h\[$(tput sgr0)\]: \[$(tput sgr0)\]\[\033[38;5;6m\]\W\[$(tput sgr0)\]]\\$ \[$(tput sgr0)\]"
 # Staff01
 # PS1='\e[33;1m\u@\h: \e[31m\W\e[0m\$ '
+
+# Color man pages
+export LESS_TERMCAP_md=$'\e[01;32m' # Bold start
+export LESS_TERMCAP_me=$'\e[0m' # Bold end
+export LESS_TERMCAP_so=$'\e[01;44;33m' # Standout-mode start
+export LESS_TERMCAP_se=$'\e[0m' # Standout-mode end
+export LESS_TERMCAP_us=$'\e[01;32m' # Underline start
+export LESS_TERMCAP_ue=$'\e[0m' # Underline end
+
+# These two lines are necessary for pipenv to run under pyenv apparently
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# Set command line editing mode to vi
+set -o vi

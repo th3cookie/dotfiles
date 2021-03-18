@@ -1,9 +1,11 @@
-# Basics
+# Basic ones first
 alias ll='ls -alh --color=auto'
 alias la='ls -A --color=auto'
 alias l='ls -CF'
 alias ls='ls --color=auto'
 alias lt='ls --human-readable --size -1 -S --classify'
+alias mv="mv -v"
+alias cp="cp -v"
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -12,7 +14,21 @@ alias egrep='egrep --color=auto'
 alias pulldev='ssh -tq puppet02 "bash -ic pulldev"'
 alias pullstaging='ssh -tq puppet02 "bash -ic pullstaging"'
 
+# Systemctl
+alias sysstart="systemctl start"
+alias sysstop="systemctl stop"
+alias sysrestart="systemctl restart"
+alias sysstatus="systemctl status"
+alias sysenable="systemctl enable"
+alias sysdisable="systemctl disable"
+
+# Docker (optional)
+alias d="docker"
+alias dc="docker-compose"
+
 # Others
+alias pulldev='ssh -tq puppet02 "bash -ic pulldev"'
+alias pullstaging='ssh -tq puppet02 "bash -ic pullstaging"'
 alias gh='history|grep'
 alias ve='python -m venv ./venv'
 alias va='source ./venv/bin/activate'
