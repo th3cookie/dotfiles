@@ -1,3 +1,5 @@
+# WSL bashrc
+
 # SSH Stuff
 #pkill ssh-agent
 #if ! pgrep ssh-agent > /dev/null; then
