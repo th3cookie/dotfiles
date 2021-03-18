@@ -27,8 +27,6 @@ alias d="docker"
 alias dc="docker-compose"
 
 # Others
-alias pulldev='ssh -tq puppet02 "bash -ic pulldev"'
-alias pullstaging='ssh -tq puppet02 "bash -ic pullstaging"'
 alias gh='history|grep'
 alias ve='python -m venv ./venv'
 alias va='source ./venv/bin/activate'
