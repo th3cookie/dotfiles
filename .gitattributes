@@ -1,1 +1,1 @@
-bash/bashrc.extras merge=nomerge
+bash/.bashrc.extras merge=ours
