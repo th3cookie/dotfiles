@@ -1,0 +1,47 @@
+#!/bin/bash
+
+vlan=$1
+user=sshakir
+if [ -z "$user" ]
+then
+       echo please specify username as arg2
+       exit
+fi
+​
+area[1]=dsw01-pod01.apdcsy1.digitalpacific.com.au
+area[2]=dsw02-pod01.apdcsy1.digitalpacific.com.au
+area[3]=dsw03-pod01.apdcsy1.digitalpacific.com.au
+area[4]=dsw04-pod01.apdcsy1.digitalpacific.com.au
+area[5]=dsw05-pod01.apdcsy1.digitalpacific.com.au
+area[6]=dsw06-pod01.apdcsy1.digitalpacific.com.au
+area[7]=dsw07-pod01.apdcsy1.digitalpacific.com.au
+area[8]=dsw08-pod01.apdcsy1.digitalpacific.com.au
+area[9]=dsw09-pod01.apdcsy1.digitalpacific.com.au
+area[10]=dsw10-pod01.apdcsy1.digitalpacific.com.au
+area[11]=dsw11-pod01.apdcsy1.digitalpacific.com.au
+area[12]=dsw12-pod01.apdcsy1.digitalpacific.com.au
+area[13]=dsw13-pod01.apdcsy1.digitalpacific.com.au
+area[14]=dsw14-pod01.apdcsy1.digitalpacific.com.au
+area[15]=dsw15-pod01.apdcsy1.digitalpacific.com.au
+area[16]=dsw16-pod01.apdcsy1.digitalpacific.com.au
+area[17]=dsw17-pod01.apdcsy1.digitalpacific.com.au
+area[18]=dsw18-pod01.apdcsy1.digitalpacific.com.au
+area[19]=dsw21-pod01.apdcsy1.digitalpacific.com.au
+area[20]=dsw22-pod01.apdcsy1.digitalpacific.com.au
+area[21]=dsw23-pod01.apdcsy1.digitalpacific.com.au
+​
+if [ $vlan -ge 0 ] 2>/dev/null ; then
+	for switch in "${area[@]}"; do
+               COMMAND="show vlan $vlan | display xml"
+               VID=$(ssh $user@$switch $COMMAND | grep '<vlan-tag>' | awk -F'>' '{print $2}' | awk -F'<' '{print $1}')
+               if [ -z "$VID" ] ; then
+                       echo $vlan UNUSED on $switch
+               else
+                       echo $vlan USED on $switch
+               fi
+       done
+else
+       echo bad vlan id
+fi
+​
+exit
