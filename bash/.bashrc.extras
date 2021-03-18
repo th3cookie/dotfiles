@@ -1,3 +1,5 @@
+# Office PC extras
+
 # Shell prompt layouts
 # Main
 PS1="[\[$(tput sgr0)\]\[\033[38;5;203m\]\u\[$(tput sgr0)\]@\[$(tput sgr0)\]\[\033[38;5;119m\]\h\[$(tput sgr0)\]: \[$(tput sgr0)\]\[\033[38;5;6m\]\W\[$(tput sgr0)\]]\\$ \[$(tput sgr0)\]"
