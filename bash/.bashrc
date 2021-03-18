@@ -71,11 +71,12 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
+
+# Extras file will differ per instance/git branch. This .bashrc is to be consistent on master.
+# I use gitattributes to ensure this file can be pushed to origin but cannot be merged to master:
+# https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes#_merge_strategies
+[[ -f ~/.bashrc.extras ]] && . ~/.bashrc.extras
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -93,19 +94,18 @@ fi
 # If environment file exists source it
 [[ -f "/etc/environment" ]] && . /etc/environment
 
-# SSH Stuff
-#pkill ssh-agent
-#if ! pgrep ssh-agent > /dev/null; then
-#  rm -f /tmp/ssh-auth-sock
-#  eval "$(ssh-agent -s -a /tmp/ssh-auth-sock)"
-#  ssh-add ~/.ssh/id_rsa
-#  ssh-add ~/.ssh/id_rsa_work
-#else
-#  export SSH_AUTH_SOCK=/tmp/ssh-auth-sock
-#fi
+# Color man pages
+export LESS_TERMCAP_md=$'\e[01;32m' # Bold start
+export LESS_TERMCAP_me=$'\e[0m' # Bold end
+export LESS_TERMCAP_so=$'\e[01;44;33m' # Standout-mode start
+export LESS_TERMCAP_se=$'\e[0m' # Standout-mode end
+export LESS_TERMCAP_us=$'\e[01;32m' # Underline start
+export LESS_TERMCAP_ue=$'\e[0m' # Underline end
 
-# Shell prompt layouts
-# Main
-PS1="[\[$(tput sgr0)\]\[\033[38;5;203m\]\u\[$(tput sgr0)\]@\[$(tput sgr0)\]\[\033[38;5;119m\]\h\[$(tput sgr0)\]: \[$(tput sgr0)\]\[\033[38;5;6m\]\W\[$(tput sgr0)\]]\\$ \[$(tput sgr0)\]"
-# Staff01
-# PS1='\e[33;1m\u@\h: \e[31m\W\e[0m\$ '
+# These two lines are necessary for pipenv to run under pyenv apparently
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# Set command line editing mode to vi
+set -o vi
