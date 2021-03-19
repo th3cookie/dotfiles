@@ -5,7 +5,7 @@
 it's a special repo, this one, because I use branches to track dotfiles per machine. I use master to ensure all branches have consistent changes so that I can rebase off master and merge any global changes i wish to have for all machines.
 > :warning: ** For any changes made to any global file (like readme and bash_aliases), I use development as a starting branch to test the changes on. Then once tested, merge these global changes into master. From master, i checkout my machine branch and rebase master to keep them up to date and manually fix conflicts.**
 
-> If i Accidentally forget to start on development before making changes to global files, I would merge <branch_with_changes> into master and manually fix all conflicts. Then push master back. That is the way...
+> If i Accidentally forget to start on development before making changes to global files, I would merge <branch_with_changes> into master and manually fix all conflicts (NOTE: This includes removing any contents of the files that are supposed to be empty in master such as .basrh.extras). Then push master back. That is the way...
 
 For the machine branches, I have created a git attribute that excludes files from merging if they are added in ".gitattributes" file of this repo. Also, because master essentially acts as a global configuration that should be layed out across all my machines, these machine branches will always be ahead of master because they have extras. My workflow to essentially keep these branches up to date with master is:
 
