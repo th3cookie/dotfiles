@@ -13,3 +13,6 @@ alias updocker='cd ~/docker && docker-compose up --force-recreate --build -d && 
 # PS1='\e[33;1m\u@\h: \e[31m\W\e[0m\$ '
 # Docker VM
 PS1='${debian_chroot:+($debian_chroot)}\[\033[0;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+alias updc="docker-compose -f ~/docker/docker-compose.yml -f ~/docker/production.yml up -d"
+alias downdc="docker-compose -f ~/docker/docker-compose.yml -f ~/docker/production.yml up down"

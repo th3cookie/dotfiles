@@ -51,14 +51,13 @@ Fix any conflicts that arise and push back to github (if required).
 
 The files in this repository must be symlinked to their respective paths in the `$HOME` folder. We can do this manually or using [GNU Stow](https://www.gnu.org/software/stow/). Since GNU Stow can automatically manage symlinked files, it is the recommended tool for setting up the dotfiles.
 
-The first step is to clone this repository in your `$HOME` folder:
+The first step is to clone this repository in your `$HOME` folder (can use ssh or https):
 
 ```shell
-git clone --recursive https://github.com/belaustegui/dotfiles.git ~/Dotfiles
+git clone --recursive git@github.com:th3cookie/dotfiles.git ~/dotfiles
 ```
 
 ### 1. Simulate changes
-
 
 > :warning: **If you are wanting to import all of these packages at once without importing the files in the parent directory (e.g. README.md, etc), use a trailing slash at the end as such: `stow -nvt ~ */`**
 
@@ -68,7 +67,7 @@ possible errors without making any changes in the filesystem. If you do not spec
 You can do this with the following commands:
 
 ```shell
-cd ~/git/personal/dotfiles
+cd ~/dotfiles
 stow -nv bash # For bash configuration
 stow -nv git # For git configuration
 ```
@@ -96,15 +95,15 @@ mv ~/.bashrc{,.old}
 After all conflicting files have been renamed, we should not get any warnings:
 
 ```shell
-LINK: .bash_aliases => git/personal/dotfiles/bash/.bash_aliases
-LINK: .bashrc => git/personal/dotfiles/bash/.bashrc
+LINK: .bash_aliases => dotfiles/bash/.bash_aliases
+LINK: .bashrc => dotfiles/bash/.bashrc
 WARNING: in simulation mode so not modifying filesystem.
 ```
 
 We can now write the changes to disk removing the `-n` modifier:
 
 ```shell
-cd ~/git/personal/dotfiles
+cd ~/dotfiles
 stow -v bash
 stow -v git
 ```
