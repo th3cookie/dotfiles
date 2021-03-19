@@ -3,8 +3,9 @@
 ## Git Workflow for this repo
 
 it's a special repo, this one, because I use branches to track dotfiles per machine. I use master to ensure all branches have consistent changes so that I can rebase off master and merge any global changes i wish to have for all machines.
+> :warning: ** For any changes made to any global file (like readme and bash_aliases), I use development as a starting branch to test the changes on. Then once tested, merge these global changes into master. From master, i checkout my machine branch and rebase master to keep them up to date and manually fix conflicts.**
 
-I use development as a starting branch to merge global changes into master and to test on before merging.
+> If i Accidentally forget to start on development before making changes to global files, I would merge <branch_with_changes> into master and manually fix all conflicts (NOTE: This includes removing any contents of the files that are supposed to be empty in master such as .basrh.extras). Then push master back. That is the way...
 
 For the machine branches, I have created a git attribute that excludes files from merging if they are added in ".gitattributes" file of this repo. Also, because master essentially acts as a global configuration that should be layed out across all my machines, these machine branches will always be ahead of master because they have extras. My workflow to essentially keep these branches up to date with master is:
 
@@ -45,20 +46,19 @@ Optionally, you may want to merge the commits into master to keep the HEAD in sy
 git merge -s ours office-pc
 ```
 
-Fix any conflicts that arise and push back to github (if required).
+Fix any conflicts that arise and push back to github.
 
 ## How to install.
 
 The files in this repository must be symlinked to their respective paths in the `$HOME` folder. We can do this manually or using [GNU Stow](https://www.gnu.org/software/stow/). Since GNU Stow can automatically manage symlinked files, it is the recommended tool for setting up the dotfiles.
 
-The first step is to clone this repository in your `$HOME` folder:
+The first step is to clone this repository in your `$HOME` folder (can use ssh or https):
 
 ```shell
-git clone --recursive https://github.com/belaustegui/dotfiles.git ~/Dotfiles
+git clone --recursive git@github.com:th3cookie/dotfiles.git ~/dotfiles
 ```
 
 ### 1. Simulate changes
-
 
 > :warning: **If you are wanting to import all of these packages at once without importing the files in the parent directory (e.g. README.md, etc), use a trailing slash at the end as such: `stow -nvt ~ */`**
 
@@ -68,7 +68,7 @@ possible errors without making any changes in the filesystem. If you do not spec
 You can do this with the following commands:
 
 ```shell
-cd ~/git/personal/dotfiles
+cd ~/dotfiles
 stow -nv bash # For bash configuration
 stow -nv git # For git configuration
 ```
@@ -96,15 +96,15 @@ mv ~/.bashrc{,.old}
 After all conflicting files have been renamed, we should not get any warnings:
 
 ```shell
-LINK: .bash_aliases => git/personal/dotfiles/bash/.bash_aliases
-LINK: .bashrc => git/personal/dotfiles/bash/.bashrc
+LINK: .bash_aliases => dotfiles/bash/.bash_aliases
+LINK: .bashrc => dotfiles/bash/.bashrc
 WARNING: in simulation mode so not modifying filesystem.
 ```
 
 We can now write the changes to disk removing the `-n` modifier:
 
 ```shell
-cd ~/git/personal/dotfiles
+cd ~/dotfiles
 stow -v bash
 stow -v git
 ```
