@@ -9,6 +9,11 @@ it's a special repo, this one, because I use branches to track dotfiles per mach
 
 > If i Accidentally forget to start on development before making changes to global files, I would merge <branch_with_changes> into master and manually fix all conflicts (NOTE: This includes removing any contents of the files that are supposed to be empty in master such as .basrh.extras). Then push master back. Then `git pull origin master` & `git diff origin/feature_branch` and fix conflicts, then `git push`. I will do this for all other machines with branches in this repo. That is the way... the best way i've found to manage these..
 
+If you make any mistakes in your machine branches, just reset them with:
+```script
+git reset --hard origin/device_branch
+```
+
 For the machine branches, I have created a git attribute that excludes files from merging if they are added in ".gitattributes" file of this repo. Also, because master essentially acts as a global configuration that should be layed out across all my machines, these machine branches will always be ahead of master because they have extras. My workflow to essentially keep these branches up to date with master is:
 
 Update local branch
