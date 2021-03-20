@@ -54,6 +54,7 @@ set smartindent         " even better autoindent (e.g. add indent after '{')
 
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
+set ignorecase          " search for upper and lowercase
 
 " turn off search highlighting with <CR> (carriage-return)
 nnoremap <CR> :nohlsearch<CR><CR>

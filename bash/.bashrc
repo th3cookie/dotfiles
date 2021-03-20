@@ -13,8 +13,18 @@ HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
+HISTSIZE=8000
 HISTFILESIZE=2000
+
+# Ignore things in history
+HISTIGNORE='top:ls:bg:fg:history'
+
+# recording each line of history as its issued
+PROMPT_COMMAND="history -a"
+
+# timestamp of each command in history
+# format example: 8000  2019-05-31 00:39:40 ps aux
+HISTTIMEFORMAT='%F %T '
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -109,3 +119,10 @@ export LC_ALL=en_US.UTF-8
 
 # Set command line editing mode to vi (optional - i am just used to emacs default)
 # set -o vi
+
+# Pretty cool for separating out pieces of a shell rc
+[[ -e "${HOME}/.bashrc.d/" ]] && rcfiles=$(ls ${HOME}/.bashrc.d/* 2>/dev/null)
+for file in $rcfiles; do
+    source $file
+done
+unset rcfiles
