@@ -66,7 +66,7 @@ The files in this repository must be symlinked to their respective paths in the 
 The first step is to clone this repository in your `$HOME` folder (can use ssh or https):
 
 ```shell
-git clone --recursive git@github.com:th3cookie/dotfiles.git ~/dotfiles
+git clone --recursive https://github.com/th3cookie/dotfiles.git ~/dotfiles
 ```
 
 ### 1. Simulate changes
@@ -80,8 +80,9 @@ You can do this with the following commands:
 
 ```shell
 cd ~/dotfiles
-stow -nv bash # For bash configuration
-stow -nv git # For git configuration
+git checkout <device_branch>	# Your devices branch
+stow -nv bash 					# For bash configuration
+stow -nv git 					# For git configuration
 ```
 
 We may get some warning messages like the following one.
