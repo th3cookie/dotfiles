@@ -81,8 +81,8 @@ You can do this with the following commands:
 ```shell
 cd ~/dotfiles
 git checkout <device_branch>	# Your devices branch
-stow -nv bash 					# For bash configuration
-stow -nv git 					# For git configuration
+stow -nv bash 			# For bash configuration
+stow -nv git 			# For git configuration
 ```
 
 We may get some warning messages like the following one.
