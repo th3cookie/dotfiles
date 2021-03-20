@@ -42,6 +42,7 @@ alias systemctl='sudo systemctl'
 alias copy='xclip -sel clip'
 alias python='python3.8'
 alias config='/usr/bin/git --git-dir=/root/.cfg/ --work-tree=/root'
+alias updotfiles="cd ~/dotfiles/; git status && git pull"
 
 # Only if linux is the main OS
 # alias ovpn='sudo openvpn --config ~/work/hostopia.ovpn &'
