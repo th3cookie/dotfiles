@@ -92,14 +92,13 @@ WARNING! stowing git would cause conflicts:
 All operations aborted.
 ```
 
-This means that the file `.gitconfig` exists before the symlinking. We need to
-manually change its name so GNU Stow can create the symlink. My recommendation is
-to rename these conflicts:
+This means that the file `.gitconfig` exists before the symlinking. We need to manually change its name so GNU Stow can create the symlink. My recommendation is to rename these conflicts:
 
 ```shell
-mv ~/.gitconfig{,.old}
-mv ~/.bash_aliases{,.old}
-mv ~/.bashrc{,.old}
+[[ -e ~/.gitconfig ]] && mv ~/.gitconfig{,.old}
+[[ -e ~/.bash_aliases ]] && mv ~/.bash_aliases{,.old}
+[[ -e ~/.bashrc ]] && mv ~/.bashrc{,.old}
+[[ -e ~/.config/htop/htoprc ]] && mv ~/.config/htop/htoprc{,.old}
 ```
 
 ### 2. Make changes
