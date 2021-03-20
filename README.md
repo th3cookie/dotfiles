@@ -7,10 +7,10 @@
 it's a special repo, this one, because I use branches to track dotfiles per machine. I use master to ensure all branches have consistent changes so that I can rebase off master and merge any global changes i wish to have for all machines.
 > :warning: ** For any changes made to any global file (like readme and bash_aliases), I use development as a starting branch to test the changes on. Then once tested, merge these global changes into master. From master, i checkout my machine branch and rebase master to keep them up to date and manually fix conflicts.**
 
-> If i Accidentally forget to start on development before making changes to global files, I would `git merge master` from the device_branch and manually fix all conflicts (NOTE: This includes removing any contents of the files that are supposed to be empty in master such as .basrc.extras). Then push master back.
+> If i Accidentally forget to start on development/master before making changes to global files, I would save my changes that I wanted to put into master, then `git checkout master` to get onto my master branch locally (`git merge origin/master` to ensure to conflict from origin before proceeding. Then `git merge device_branch` and manually fix all conflicts (NOTE: This includes removing any contents of the files that are supposed to be empty in master such as .basrc.extras which will be completely deleted as it's different on each device.. I haven't quite figured the best way to deal with this other than to `git diff origin/device_name` and grab that extras file or even `git diff device_name` local branch if it's there.). Then push master back to origin with `git .
 
 I don't think this part is required?
-> Then `git pull origin master` & `git diff origin/feature_branch` and fix conflicts, then `git push`. I will do this for all other machines with branches in this repo. That is the way... the best way i've found to manage these..
+> Then `git checkout device_branch`, `git merge origin/master` & `git diff origin/device_branch` and fix conflicts, then `git push`. I will do this for all other machines with branches in this repo. That is the way... the best way i've found to manage these..
 
 If you make any mistakes in your machine branches, just reset them with:
 ```script
