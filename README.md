@@ -47,13 +47,12 @@ git add .
 git commit -m "message"
 git push origin
 ```
+> :warning: The below needs more testing
 
 Optionally, you may want to merge the commits into master to keep the HEAD in sync but you need to specify the "ours" merge strategy as defined in the .gitattributes file. To do this, the command is (on master branch):
 ```shell
 git merge -s ours office-pc
 ```
-
-(The above ^ hasn't worked well for me yet)
 
 Fix any conflicts that arise and push back to github.
 
