@@ -3,12 +3,12 @@
 # SSH Stuff
 pkill ssh-agent
 if ! pgrep ssh-agent > /dev/null; then
-  rm -f /tmp/ssh-auth-sock
-  eval "$(ssh-agent -s -a /tmp/ssh-auth-sock)"
-  ssh-add ~/.ssh/id_rsa
-  ssh-add ~/.ssh/id_rsa_work
+	rm -f /tmp/ssh-auth-sock
+	eval "$(ssh-agent -s -a /tmp/ssh-auth-sock)"
+	ssh-add ~/.ssh/id_rsa
+	ssh-add ~/.ssh/id_rsa_work
 else
-  export SSH_AUTH_SOCK=/tmp/ssh-auth-sock
+	export SSH_AUTH_SOCK=/tmp/ssh-auth-sock
 fi
 
 # Shell prompt layouts
