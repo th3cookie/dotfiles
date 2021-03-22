@@ -99,3 +99,9 @@ function cl() {
 	# use your preferred ls command
 	ls -F --color=auto
 }
+# Find git dir based on search term and cd into it (only usable with my dir structure i.e. ~/git/(personal|work)/repos etc.)
+function gotogit() {
+	SEARCHTERM=${1}
+	FOUNDDIR=$(find ~/git -maxdepth 2 -type d -name "*${SEARCHTERM}*")
+	[[ $(echo "${FOUNDDIR}" | wc -l) -eq 1 ]] && cd ${FOUNDDIR}
+}
