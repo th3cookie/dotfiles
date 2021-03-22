@@ -74,6 +74,9 @@ function foreman() {
 function jira() {
 	wslview "https://hostopia-au.atlassian.net/browse/${1}" &
 }
+function confluence() {
+	wslview "https://hostopia-au.atlassian.net/wiki/search?text=${1}" &
+}
 function geopeeker() {
 	wslview "https://geopeeker.com/fetch/?url=${1}" &
 }
