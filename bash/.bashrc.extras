@@ -20,7 +20,7 @@ fi
 function color_my_prompt {
     local __user_and_host="\[\033[38;5;203m\]\u\[$(tput sgr0)\]@\[\033[38;5;119m\]\h\[$(tput sgr0)\]"
     local __cur_location="\[\033[38;5;6m\]\W\[$(tput sgr0)\]"
-    local __git_branch_color="\[\033[35m\]"
+    local __git_branch_color="\[\033[38;5;170m\]"
     #local __git_branch="\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`"
     local __git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'
     local __prompt_tail="\[$(tput sgr0)\]\\$"
