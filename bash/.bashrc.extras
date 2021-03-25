@@ -31,4 +31,4 @@ if ! shopt -oq posix; then
 fi
 
 # Connect to home vpn - bonus tip: Create a pass.txt file add your user/pass in that order on each line and save the file. in your openvpn config file, add the line "auth-user-pass pass.txt" to have it automatically login with your creds
-alias ovpn='sudo openvpn --config ~/sami-home.ovpn &'
+alias ovpn='sudo openvpn --config ~/sami-office-pc-pfsense-TCP4-1194-openvpn-config.ovpn &'
