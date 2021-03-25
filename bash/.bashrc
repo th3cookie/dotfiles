@@ -124,3 +124,10 @@ for file in $rcfiles; do
     source $file
 done
 unset rcfiles
+
+# Find your browser and set the browser variable
+if [[ $(which wslview) ]]; then
+    BROWSER="wslview"
+else
+    BROWSER="firefox"
+fi
