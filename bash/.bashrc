@@ -127,7 +127,7 @@ unset rcfiles
 
 # Find your browser and set the browser variable
 if [[ $(which wslview) ]]; then
-	BROWSER="wslview"
+	export BROWSER="wslview"
 else
-	BROWSER="firefox"
+	export BROWSER="firefox"
 fi
