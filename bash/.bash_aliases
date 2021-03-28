@@ -56,32 +56,32 @@ function hosted() {
 	host $1 | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" | xargs host | awk '{print $5}' | bash -ic "xargs whm"
 }
 function sslchk() {
-	firefox https://www.sslshopper.com/ssl-checker.html#hostname=$1 &
+	${BROWSER} https://www.sslshopper.com/ssl-checker.html#hostname=$1 &
 }
 function fixpup() {
 	echo "Doing puppet manifest checks - Lint and Parser..."; echo "If there is no output below, everything is fine."; echo "-------------------------------------------------"; puppet-lint $1; puppet parser validate $1;
 }
 function mxtoolbox() {
-	wslview "https://mxtoolbox.com/SuperTool.aspx?action=blacklist%3a${1}&run=toolpage" &
+	${BROWSER} "https://mxtoolbox.com/SuperTool.aspx?action=blacklist%3a${1}&run=toolpage" &
 }
 function ssa() {
 	eval $(ssh-agent -s)
 	ssh-add ~/.ssh/id_rsa*
 }
 function foreman() {
-	wslview "https://puppet02.digitalpacific.com.au/hosts/${1}/edit#params" &
+	${BROWSER} "https://puppet02.digitalpacific.com.au/hosts/${1}/edit#params" &
 }
 function jira() {
-	wslview "https://hostopia-au.atlassian.net/browse/${1}" &
+	${BROWSER} "https://hostopia-au.atlassian.net/browse/${1}" &
 }
 function confluence() {
-	wslview "https://hostopia-au.atlassian.net/wiki/search?text=${1}" &
+	${BROWSER} "https://hostopia-au.atlassian.net/wiki/search?text=${1}" &
 }
 function geopeeker() {
-	wslview "https://geopeeker.com/fetch/?url=${1}" &
+	${BROWSER} "https://geopeeker.com/fetch/?url=${1}" &
 }
 function pagerduty() {
-	wslview "https://digitalpacific.pagerduty.com/incidents/${1}/timeline" &
+	${BROWSER} "https://digitalpacific.pagerduty.com/incidents/${1}/timeline" &
 }
 function gitpushall() {
 	read -p "Commit Message: " MESSAGE
