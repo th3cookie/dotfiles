@@ -1,7 +1,7 @@
 # docker VM extras
 
 # Aliases for Docker VM
-alias gitupdockeryml='cd ~/git/personal/provisioning && git pull && cd ${OLDPWD}'
+alias upgitdockeryml='cd ~/git/personal/provisioning && git pull && cd ${OLDPWD}'
 alias dcup="cd ~/docker && docker-compose up -d --force-recreate --remove-orphans"
 alias dcdown="cd ~/docker && docker-compose down"
 
