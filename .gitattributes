@@ -1,1 +1,2 @@
 bash/.bashrc.extras merge=ours
+bash/.bashrc.d/docker-aliases merge=ours
