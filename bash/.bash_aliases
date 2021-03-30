@@ -15,24 +15,23 @@ alias pulldev='ssh -tq puppet02 "bash -ic pulldev"'
 alias pullstaging='ssh -tq puppet02 "bash -ic pullstaging"'
 
 # Systemctl
-alias sysstart="systemctl start"
-alias sysstop="systemctl stop"
-alias sysrestart="systemctl restart"
-alias sysstatus="systemctl status"
-alias sysenable="systemctl enable"
-alias sysdisable="systemctl disable"
+alias sysstart="sudo systemctl start"
+alias sysstop="sudo systemctl stop"
+alias sysrestart="sudo systemctl restart"
+alias sysstatus="sudo systemctl status"
+alias sysenable="sudo systemctl enable"
+alias sysdisable="sudo systemctl disable"
 
 # Docker (optional)
 alias d="docker"
 alias dc="docker-compose"
 
 # Others
-alias gh='history|grep'
+alias gh='history | grep'
 alias ve='python -m venv ./venv'
 alias va='source ./venv/bin/activate'
 alias cpv='rsync -ah --info=progress2'
 alias hosts='sudo vim /etc/hosts'
-alias reslack='pkill slack && slack'
 alias gitpullall='echo -e "\n$PWD\n------------------------\n" && git status && git pull'
 alias fireth3cookie='(firefox -P th3cookie &> /dev/null &disown)'
 alias firework='(firefox -P work &> /dev/null &disown)'
@@ -42,6 +41,8 @@ alias copy='xclip -sel clip'
 alias python='python3.8'
 alias config='/usr/bin/git --git-dir=/root/.cfg/ --work-tree=/root'
 alias updotfiles="cd ~/dotfiles && git status && git pull"
+alias shutdown='sudo shutdown -h now'
+alias reboot='sudo reboot'
 
 # Only if linux is the main OS
 # alias ovpn='sudo openvpn --config ~/work/hostopia.ovpn &'
