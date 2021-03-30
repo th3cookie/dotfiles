@@ -1,10 +1,5 @@
 # docker VM extras
 
-# Aliases for Docker VM
-alias upgitdockeryml='cd ~/git/personal/provisioning && git pull && cd ${OLDPWD}'
-alias dcup="cd ~/docker && docker-compose up -d --force-recreate --remove-orphans"
-alias dcdown="cd ~/docker && docker-compose down"
-
 # Shell prompt layouts
 # Main
 # PS1="[\[$(tput sgr0)\]\[\033[38;5;203m\]\u\[$(tput sgr0)\]@\[$(tput sgr0)\]\[\033[38;5;119m\]\h\[$(tput sgr0)\]: \[$(tput sgr0)\]\[\033[38;5;6m\]\W\[$(tput sgr0)\]]\\$ \[$(tput sgr0)\]"
@@ -24,3 +19,4 @@ function color_my_prompt {
     export PS1="$__user_and_host $__cur_location $__git_branch_color$__git_branch$__prompt_tail "
 }
 color_my_prompt
+
