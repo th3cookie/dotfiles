@@ -15,6 +15,7 @@ alias pulldev='ssh -tq puppet02 "bash -ic pulldev"'
 alias pullstaging='ssh -tq puppet02 "bash -ic pullstaging"'
 
 # Systemctl
+alias systemctl='sudo systemctl'
 alias sysstart="sudo systemctl start"
 alias sysstop="sudo systemctl stop"
 alias sysrestart="sudo systemctl restart"
@@ -36,13 +37,14 @@ alias gitpullall='echo -e "\n$PWD\n------------------------\n" && git status && 
 alias fireth3cookie='(firefox -P th3cookie &> /dev/null &disown)'
 alias firework='(firefox -P work &> /dev/null &disown)'
 alias ss='sudo ss'
-alias systemctl='sudo systemctl'
 alias copy='xclip -sel clip'
 alias python='python3.8'
 alias config='/usr/bin/git --git-dir=/root/.cfg/ --work-tree=/root'
 alias updotfiles="cd ~/dotfiles && git status && git pull"
 alias shutdown='sudo shutdown -h now'
 alias reboot='sudo reboot'
+alias portsused='sudo ss -tulnp | grep LISTEN'
+alias dirsize='sudo du -hx --max-depth=1'
 
 # Only if linux is the main OS
 # alias ovpn='sudo openvpn --config ~/work/hostopia.ovpn &'
