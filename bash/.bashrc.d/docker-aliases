@@ -1,4 +1,6 @@
 # DOCKER ALIASES
+alias d="docker"
+alias dc="docker-compose"
 alias upgitdockeryml='cd ~/git/personal/provisioning && git pull && cd ${OLDPWD}'
 # dstopcont <CONTAINER> - stop container
 alias dstopcont='sudo docker stop $(docker ps -a -q)'
