@@ -78,7 +78,7 @@ function jira() {
 	${BROWSER} "https://hostopia-au.atlassian.net/browse/${1}" &
 }
 function confluence() {
-	${BROWSER} "https://hostopia-au.atlassian.net/wiki/search?text=${1}" &
+	${BROWSER} "https://hostopia-au.atlassian.net/wiki/search?text=$*" &
 }
 function geopeeker() {
 	${BROWSER} "https://geopeeker.com/fetch/?url=${1}" &
