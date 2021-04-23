@@ -1,1 +1,1 @@
-bash/.bashrc.extras merge=ours
+bash/.bashrc.d/* merge=ours
