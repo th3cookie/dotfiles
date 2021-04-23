@@ -86,7 +86,7 @@ fi
 # Extras file will differ per instance/git branch. This .bashrc is to be consistent on master.
 # I use gitattributes to ensure this file can be pushed to origin but cannot be merged to master:
 # https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes#_merge_strategies
-[[ -f ~/.bashrc.extras ]] && . ~/.bashrc.extras
+[[ -f ~/.bashrc.d/bashrc.extras ]] && . ~/.bashrc.d/bashrc.extras
 
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
