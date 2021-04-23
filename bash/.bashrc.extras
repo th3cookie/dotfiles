@@ -1,18 +1,30 @@
 # WSL bashrc
 
 # SSH Stuff
-#pkill ssh-agent
-#if ! pgrep ssh-agent > /dev/null; then
-#  rm -f /tmp/ssh-auth-sock
-#  eval "$(ssh-agent -s -a /tmp/ssh-auth-sock)"
-#  ssh-add ~/.ssh/id_rsa
-#  ssh-add ~/.ssh/id_rsa_work
-#else
-#  export SSH_AUTH_SOCK=/tmp/ssh-auth-sock
-#fi
+pkill ssh-agent
+if ! pgrep ssh-agent > /dev/null; then
+	rm -f /tmp/ssh-auth-sock
+	eval "$(ssh-agent -s -a /tmp/ssh-auth-sock)"
+	ssh-add ~/.ssh/id_rsa
+	ssh-add ~/.ssh/id_rsa_work
+else
+	export SSH_AUTH_SOCK=/tmp/ssh-auth-sock
+fi
 
 # Shell prompt layouts
 # Main
-export PS1="[\[$(tput sgr0)\]\[\033[38;5;203m\]\u\[$(tput sgr0)\]@\[$(tput sgr0)\]\[\033[38;5;119m\]\h\[$(tput sgr0)\]: \[$(tput sgr0)\]\[\033[38;5;6m\]\W\[$(tput sgr0)\]]\\$ \[$(tput sgr0)\]"
+# export PS1="[\[$(tput sgr0)\]\[\033[38;5;203m\]\u\[$(tput sgr0)\]@\[$(tput sgr0)\]\[\033[38;5;119m\]\h\[$(tput sgr0)\]: \[$(tput sgr0)\]\[\033[38;5;6m\]\W\[$(tput sgr0)\]]\\$ \[$(tput sgr0)\]"
 # Staff01
 # PS1='\e[33;1m\u@\h: \e[31m\W\e[0m\$ '
+
+function color_my_prompt {
+    local __user_and_host="\[\033[38;5;203m\]\u\[$(tput sgr0)\]@\[\033[38;5;119m\]\h\[$(tput sgr0)\]"
+    local __cur_location="\[\033[38;5;6m\]\W\[$(tput sgr0)\]"
+    local __git_branch_color="\[\033[38;5;170m\]"
+    #local __git_branch="\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`"
+    local __git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'
+    local __prompt_tail="\[$(tput sgr0)\]\\$"
+    # local __last_color="\[\033[00m\]"
+    export PS1="$__user_and_host $__cur_location $__git_branch_color$__git_branch$__prompt_tail "
+}
+color_my_prompt
