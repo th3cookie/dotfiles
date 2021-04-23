@@ -22,10 +22,6 @@ alias sysstatus="systemctl status"
 alias sysenable="systemctl enable"
 alias sysdisable="systemctl disable"
 
-# Docker (optional)
-alias d="docker"
-alias dc="docker-compose"
-
 # Others
 alias gh='history|grep'
 alias ve='python -m venv ./venv'
