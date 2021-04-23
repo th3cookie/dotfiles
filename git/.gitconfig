@@ -20,6 +20,6 @@
 [includeIf "gitdir:/mnt/c/git/personal/"]
 	path = ~/git/personal/.gitconfig
 
-; Excluding OS specific file(s): .bashrc.extras
+; Excluding OS specific file(s), e.g: .bashrc.extras
 [merge "ours"]
 	driver = true
