@@ -47,63 +47,67 @@ alias dirsize='sudo du -hx --max-depth=1'
 
 # Functions to pass through options
 function torhost() {
-	TOR=$(host ${1} | grep -oP '(?<=vlan).*' | cut -d '.' -f 2-)
-	TOR2=${TOR::-1}
-	ssh ${TOR2}
+    TOR=$(host ${1} | grep -oP '(?<=vlan).*' | cut -d '.' -f 2-)
+    TOR2=${TOR::-1}
+    ssh ${TOR2}
 }
 function hosted() {
-	host $1 | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" | xargs host | awk '{print $5}' | bash -ic "xargs whm"
+    host $1 | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" | xargs host | awk '{print $5}' | bash -ic "xargs whm"
 }
 function sslchk() {
-	${BROWSER} https://www.sslshopper.com/ssl-checker.html#hostname=$1 &
+    ${BROWSER} https://www.sslshopper.com/ssl-checker.html#hostname=$1 &
 }
 function fixpup() {
-	echo "Doing puppet manifest checks - Lint and Parser..."; echo "If there is no output below, everything is fine."; echo "-------------------------------------------------"; puppet-lint $1; puppet parser validate $1;
+    echo "Doing puppet manifest checks - Lint and Parser..."; echo "If there is no output below, everything is fine."; echo "-------------------------------------------------"; puppet-lint $1; puppet parser validate $1;
 }
 function mxtoolbox() {
-	${BROWSER} "https://mxtoolbox.com/SuperTool.aspx?action=blacklist%3a${1}&run=toolpage" &
+    ${BROWSER} "https://mxtoolbox.com/SuperTool.aspx?action=blacklist%3a${1}&run=toolpage" &
 }
 function ssa() {
-	eval $(ssh-agent -s)
-	ssh-add ~/.ssh/id_rsa*
+    eval $(ssh-agent -s)
+    ssh-add ~/.ssh/id_rsa*
 }
 function foreman() {
-	${BROWSER} "https://puppet02.digitalpacific.com.au/hosts/${1}/edit#params" &
+    ${BROWSER} "https://puppet02.digitalpacific.com.au/hosts/${1}/edit#params" &
 }
 function jira() {
-	${BROWSER} "https://hostopia-au.atlassian.net/browse/${1}" &
+    ${BROWSER} "https://hostopia-au.atlassian.net/browse/${1}" &
 }
 function confluence() {
-	${BROWSER} "https://hostopia-au.atlassian.net/wiki/search?text=$*" &
+    ${BROWSER} "https://hostopia-au.atlassian.net/wiki/search?text=$*" &
 }
 function geopeeker() {
-	${BROWSER} "https://geopeeker.com/fetch/?url=${1}" &
+    ${BROWSER} "https://geopeeker.com/fetch/?url=${1}" &
 }
 function pagerduty() {
-	${BROWSER} "https://digitalpacific.pagerduty.com/incidents/${1}/timeline" &
+    ${BROWSER} "https://digitalpacific.pagerduty.com/incidents/${1}/timeline" &
 }
 function gitpushall() {
-	read -p "Commit Message: " MESSAGE
-	echo -e "\n$PWD\n------------------------\n"
-	git status
-	git add .
-	git commit -m "auto commit from $(hostname) - ${MESSAGE}"
-	git push origin
+    read -p "Commit Message: " MESSAGE
+    echo -e "\n$PWD\n------------------------\n"
+    git status
+    git add .
+    git commit -m "auto commit from $(hostname) - ${MESSAGE}"
+    git push origin
 }
 # Change dir and ls
 function cl() {
-	DIR="$*";
-	# if no DIR given, go home
-	if [ $# -lt 1 ]; then
-		DIR=$HOME;
-	fi;
-	builtin cd "${DIR}" && \
-	# use your preferred ls command
-	ls -F --color=auto
+    DIR="$*";
+    # if no DIR given, go home
+    if [ $# -lt 1 ]; then
+        DIR=$HOME;
+    fi;
+    builtin cd "${DIR}" && \
+    # use your preferred ls command
+    ls -F --color=auto
 }
 # Find git dir based on search term and cd into it (only usable with my dir structure i.e. ~/git/(personal|work)/repos etc.)
 function gotogit() {
-	SEARCHTERM=${1}
-	FOUNDDIR=$(find ~/git -maxdepth 2 -type d -name "*${SEARCHTERM}*")
-	[[ $(echo "${FOUNDDIR}" | wc -l) -eq 1 ]] && cd ${FOUNDDIR}
+    SEARCHTERM=${1}
+    FOUNDDIR=$(find ~/git -maxdepth 2 -mindepth 2 -type d -name "*${SEARCHTERM}*")
+    if [[ $(echo "${FOUNDDIR}" | wc -l) -eq 1 ]]; then
+        cd ${FOUNDDIR}
+    elif [[ $(echo "${FOUNDDIR}" | wc -l) -gt 1 ]]; then
+        echo -e "\nPlease be more specific from the below repos that I found:\n\n$(echo ${FOUNDDIR} | tr ' ' '\n')\n"
+    fi
 }
