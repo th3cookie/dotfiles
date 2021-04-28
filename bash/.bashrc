@@ -110,6 +110,9 @@ export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# Tells pipenv to use the repo folder location for the virtual environment files. This is good for vscode to automagically load the right interpreter.
+export PIPENV_VENV_IN_PROJECT=1
+
 # Set command line editing mode to vi (optional - i am just used to emacs default)
 # set -o vi
 
