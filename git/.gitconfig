@@ -23,3 +23,18 @@
 ; Excluding OS specific file(s), e.g: .bashrc.extras
 [merge "ours"]
 	driver = true
+
+[diff]
+	tool = vimdiff
+
+[merge]
+	tool = vimdiff
+
+[log]
+	date = local
+
+[help]
+	autocorrect = 20
+
+[color]
+	ui = true
