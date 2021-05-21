@@ -1,0 +1,7 @@
+# SSH agent Fix for office pc (defunct process)
+
+pkill -9 ssh-agent
+rm -f /tmp/ssh-auth-sock
+eval "$(ssh-agent -s -a /tmp/ssh-auth-sock)"
+ssh-add ~/.ssh/id_rsa
+ssh-add ~/.ssh/id_rsa_anchor
