@@ -29,3 +29,21 @@ function color_my_prompt {
 color_my_prompt
 
 source ~/pyenv/bin/activate
+
+# BEGIN ANSIBLE MANAGED BLOCK - bashrc.yml
+# Required paths.
+export PATH="$PATH:/root/git/work/scripts"
+export PATH="$PATH:/root/git/work/aws"
+export PATH="$PATH:$HOME/terraform"
+
+# Git
+export GIT_PAGER='less -r'
+alias gitlog='git log --pretty=format:"%h - %an, %ad: %s"'
+
+# Useful tools
+alias sshi="ssh -o ControlMaster=no -o UserKnownHostsFile=/dev/null -o PasswordAuthentication=yes -o StrictHostKeyChecking=no $@"
+alias sftpi="sftp -o ControlMaster=no -o UserKnownHostsFile=/dev/null -o PasswordAuthentication=yes -o StrictHostKeyChecking=no $@"
+alias chamber='aws-sts --role anchor-delivery anchor -- chamber'
+alias cr-sa='aws-info -r Sysadmin -eb'
+alias cr-sup='aws-info -r Support -eb'
+# END ANSIBLE MANAGED BLOCK - bashrc.yml
