@@ -1,14 +1,14 @@
 # WSL-playground bashrc.extras
 
-# SSH Stuff
-pkill ssh-agent
-if ! pgrep ssh-agent > /dev/null; then
-    rm -f /tmp/ssh-auth-sock
-    eval "$(ssh-agent -s -a /tmp/ssh-auth-sock)"
-    ssh-add ~/.ssh/id_rsa*
-else
-    export SSH_AUTH_SOCK=/tmp/ssh-auth-sock
-fi
+# SSH Stuff (No longer used)
+# pkill ssh-agent
+# if ! pgrep ssh-agent > /dev/null; then
+#     rm -f /tmp/ssh-auth-sock
+#     eval "$(ssh-agent -s -a /tmp/ssh-auth-sock)"
+#     ssh-add ~/.ssh/id_rsa*
+# else
+#     export SSH_AUTH_SOCK=/tmp/ssh-auth-sock
+# fi
 
 # Shell prompt layouts
 # Main
