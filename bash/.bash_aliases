@@ -41,6 +41,8 @@ alias shutdown='sudo shutdown -h now'
 alias reboot='sudo reboot'
 alias portsused='sudo ss -tulnp | grep LISTEN'
 alias dirsize='sudo du -hx --max-depth=1'
+alias sshi="ssh -o ControlMaster=no -o UserKnownHostsFile=/dev/null -o PasswordAuthentication=yes -o StrictHostKeyChecking=no $@"
+alias sftpi="sftp -o ControlMaster=no -o UserKnownHostsFile=/dev/null -o PasswordAuthentication=yes -o StrictHostKeyChecking=no $@"
 
 # Only if linux is the main OS
 # alias ovpn='sudo openvpn --config ~/work/hostopia.ovpn &'
